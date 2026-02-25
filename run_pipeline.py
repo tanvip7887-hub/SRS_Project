@@ -28,7 +28,8 @@ if __name__ == "__main__":
     run_script("main.py")                  # Extraction
     run_script("detect_duplicates.py")     # Duplicate Detection
     run_script("detect_ambiguity.py")      # Ambiguity Detection
-    run_script("annotate_srs.py")          # Annotation
+    run_script("annotate_srs.py")   
+    run_script("remove_duplicates.py")# Annotation
 
     print("\n==============================")
     print(" 🎉 PIPELINE COMPLETED ")
