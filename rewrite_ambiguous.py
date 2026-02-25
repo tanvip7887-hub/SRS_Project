@@ -1,153 +1,141 @@
 import json
-import requests
-import math
+import time
+from openai import OpenAI
 
-print("🟢 Loading files...")
+# ============================================
+# CONNECT TO LM STUDIO
+# ============================================
+client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
-# =========================
-# BALANCED SETTINGS (CPU + Accuracy)
-# =========================
+BATCH_SIZE = 10
 
-LM_STUDIO_URL = "http://localhost:1234/v1/chat/completions"
-MODEL_NAME = "mistral-7b-instruct-v0.3"
-
-BATCH_SIZE = 15        # 76 req → ~5 batches (fast + accurate)
-TEMPERATURE = 0.1      # stable output
-MAX_TOKENS = 700       # enough for 15 rewrites
-TIMEOUT = 180
-
-# =========================
-# LOAD FILES
-# =========================
-
-with open("clean_requirements.json", "r", encoding="utf-8") as f:
-    clean_requirements = json.load(f)
+print("🟢 Loading ambiguous items...")
 
 with open("ambiguity_report.json", "r", encoding="utf-8") as f:
-    ambiguous_list = json.load(f)
+    amb_data = json.load(f)
 
-ambiguous_dict = {item["id"]: item["text"] for item in ambiguous_list}
+# Normalize input format
+if isinstance(amb_data, list):
+    ambiguous_items = amb_data
+else:
+    ambiguous_items = [{"id": k, "text": v} for k, v in amb_data.items()]
 
-print(f"Total clean requirements: {len(clean_requirements)}")
-print(f"Ambiguous to rewrite: {len(ambiguous_dict)}")
+total = len(ambiguous_items)
+print("Total ambiguous requirements:", total)
 
-# =========================
-# SAFE JSON EXTRACTION
-# =========================
+output = []
 
-def extract_json(text):
-    text = text.strip()
-    text = text.replace("```json", "").replace("```", "").strip()
-    try:
-        return json.loads(text)
-    except:
-        return None
+# ============================================
+# STRICT REWRITE FUNCTION (forces bracket format)
+# ============================================
 
-# =========================
-# REWRITE FUNCTION
-# =========================
-
-def rewrite_batch(batch_dict):
-
-    formatted = "\n".join(
-        [f"{req_id}: {text}" for req_id, text in batch_dict.items()]
+def rewrite_batch(batch):
+    text_block = "\n\n".join(
+        [f"[{item['id']}]\n{item['text']}" for item in batch]
     )
 
     prompt = f"""
-Rewrite the following ambiguous software requirements.
+Rewrite each software requirement clearly and unambiguously using **shall**.
 
 STRICT RULES:
-- Replace SHOULD or MAY with SHALL.
-- Remove vague words.
-- Make requirements measurable and testable.
-- ALWAYS rewrite every requirement.
-- Keep SAME requirement ID.
-- Return ONLY valid JSON like:
-{{ "REQ-ID": "Rewritten text" }}
+1. Output MUST be EXACTLY in this format:
+   [FR-23] rewritten requirement
+   [FR-24] rewritten requirement
+2. ID MUST be inside square brackets.
+3. ONE sentence per requirement.
+4. NO bullets, NO numbering, NO explanation.
+5. Keep the meaning the same.
+6. Do not repeat the original.
 
-If you do not rewrite a requirement, it will be considered incorrect.
+Rewrite the following requirements:
 
-Requirements:
-{formatted}
+{text_block}
 """
 
-    response = requests.post(
-        LM_STUDIO_URL,
-        json={
-            "model": MODEL_NAME,
-            "messages": [
-                {"role": "user", "content": prompt}
-            ],
-            "temperature": TEMPERATURE,
-            "max_tokens": MAX_TOKENS
-        },
-        timeout=TIMEOUT
+    response = client.chat.completions.create(
+        model="qwen2.5-coder-1.5b-instruct",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=1500,
+        temperature=0.1,
     )
 
-    result = response.json()
+    return response.choices[0].message.content.strip()
 
-    if "choices" not in result:
-        raise ValueError("Invalid response from model.")
 
-    content = result["choices"][0]["message"]["content"]
-    parsed = extract_json(content)
+# ============================================
+# STRONG FLEXIBLE PARSER
+# ============================================
 
-    if not parsed:
-        raise ValueError("Model did not return valid JSON.")
+def parse_output(raw_output, batch):
+    lines = raw_output.split("\n")
+    parsed = {}
+
+    batch_ids = [item["id"] for item in batch]
+
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+
+        # Format 1 — [FR-23] text
+        if line.startswith("[") and "]" in line:
+            req_id = line.split("]")[0].replace("[", "").strip()
+            rewritten = line.split("]", 1)[1].strip()
+            if req_id in batch_ids:
+                parsed[req_id] = rewritten
+            continue
+
+        # Format 2 — FR-23: text
+        if ":" in line:
+            possible_id = line.split(":", 1)[0].strip()
+            if possible_id in batch_ids:
+                rewritten = line.split(":", 1)[1].strip()
+                parsed[possible_id] = rewritten
+                continue
+
+        # Format 3 — FR-23 text
+        for item in batch:
+            if line.startswith(item["id"]):
+                rewritten = line.replace(item["id"], "", 1).strip(" :-")
+                parsed[item["id"]] = rewritten
+                break
 
     return parsed
 
-# =========================
+
+# ============================================
 # PROCESS BATCHES
-# =========================
+# ============================================
 
-rewritten_requirements = clean_requirements.copy()
-ambiguous_items = list(ambiguous_dict.items())
+print("🔄 Rewriting started...")
 
-total_batches = math.ceil(len(ambiguous_items) / BATCH_SIZE)
+for i in range(0, total, BATCH_SIZE):
+    batch = ambiguous_items[i:i+BATCH_SIZE]
+    print(f"Processing batch {i//BATCH_SIZE + 1} / {((total-1)//BATCH_SIZE)+1}")
 
-for i in range(total_batches):
+    raw_output = rewrite_batch(batch)
 
-    print(f"🚀 Processing batch {i+1}/{total_batches}")
+    parsed = parse_output(raw_output, batch)
 
-    batch_slice = ambiguous_items[i*BATCH_SIZE : (i+1)*BATCH_SIZE]
-    batch_dict = dict(batch_slice)
+    for item in batch:
+        req_id = item["id"]
+        original = item["text"]
+        rewritten = parsed.get(req_id, "REWRITE_FAILED")
 
-    try:
-        rewritten_batch = rewrite_batch(batch_dict)
+        output.append({
+            "id": req_id,
+            "original": original,
+            "rewritten": rewritten
+        })
 
-        # Case 1: Dictionary format
-        if isinstance(rewritten_batch, dict):
-            for req_id, new_text in rewritten_batch.items():
-                if req_id in batch_dict:
-                    rewritten_requirements[req_id] = new_text.strip()
+    time.sleep(0.2)
 
-        # Case 2: List format (model variation)
-        elif isinstance(rewritten_batch, list):
-            for item in rewritten_batch:
-                if isinstance(item, dict):
-                    req_id = item.get("ID") or item.get("id")
-                    new_text = (
-                        item.get("text")
-                        or item.get("requirement")
-                        or item.get("rewritten")
-                    )
-                    if req_id and new_text and req_id in batch_dict:
-                        rewritten_requirements[req_id] = new_text.strip()
-
-    except Exception as e:
-        print(f"⚠ Batch {i+1} failed. Keeping originals.")
-        print("Reason:", e)
-
-        for req_id in batch_dict:
-            rewritten_requirements[req_id] = batch_dict[req_id]
-
-# =========================
+# ============================================
 # SAVE OUTPUT
-# =========================
+# ============================================
 
-with open("rewritten_requirements.json", "w", encoding="utf-8") as f:
-    json.dump(rewritten_requirements, f, indent=4, ensure_ascii=False)
+with open("rewritten_ambiguity.json", "w", encoding="utf-8") as f:
+    json.dump(output, f, indent=4, ensure_ascii=False)
 
-print("\n✅ Rewriting complete!")
-print("📄 Saved as rewritten_requirements.json")
+print("\n✅ Batch rewriting complete!")
+print("📄 Saved as rewritten_ambiguity.json")
