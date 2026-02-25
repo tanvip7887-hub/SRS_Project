@@ -1,1677 +1,306 @@
 [
     {
-        "id": "FR-01",
-        "text": ". The system SHALL provide a self-registration process for job seekers.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-02",
-        "text": ". The system SHALL support account activation by user mobile number",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-03",
-        "text": ". The system SHALL collect the following information from job seekers through a multi-level onboarding process (via mobile/email):\nLevel 1: First and last name, email, mobile number, password, gender\nLevel 2: Education, work experience, skills, training, certificates, recent salary (optional), current address, permanent address/residence\nLevel 3 (optional): Social media links (e.g., LinkedIn, IEEE, X), personal statement, bio",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-04",
-        "text": ". The system SHALL support resume/CV upload in common formats (PDF, DOCX, TXT).",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-05",
-        "text": ". The system SHALL offer the CV to AI engine to automatically extract information from uploaded resumes/CVs using AI parsing technology and add\nthe extracted information to the profile.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-06",
-        "text": ". The system SHALL allow job seekers to build their profiles using a staged, stepwise form with popup prompts for the following sections:\nEducation: Degree, institution\nExperience: Company, role, duration\nSkills: Primary/secondary; soft/hard\nPreferences: Job type, desired salary, preferred location",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-07",
-        "text": ". The system SHALL allow job seekers to edit and update their profiles at any time.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-08",
-        "text": ". The system SHALL provide a recommendation to encourage job seekers to complete their profiles and to explore opportunities aligned with their broader skills, interests, and experiences beyond formal education and\ntraining.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-09",
-        "text": ". The system SHALL allow job seekers to set job preferences including job type, industry, location, salary expectations, and work arrangements.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-10",
-        "text": ". The system SHALL provide privacy controls that allow job seekers to set visibility preferences for their profile (public or private), and request account\ndeactivation or deletion.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-11",
-        "text": ". The system SHALL generate a shareable public profile URL/QR Code for each job seeker, if activated by the user.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-12",
-        "text": ". The system SHALL allow the job seeker to upload supplementary documents (i.e. certificate ) ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-13",
-        "text": ". The system SHALL provide a stepwise registration process for employers:\nLevel 1: Company name, email, mobile number, company ID, and registration number (if registered)\nLevel 2: Website, industry, company size, address, company description, and attachments for supplementary documents",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-14",
-        "text": ". The system SHALL require account activation through a one-time password (OTP) sent to the registered mobile number.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-15",
-        "text": ". The system SHALL provide an employer verification process that includes automatic verification using official information such as the employer\u2019s registration number, VAT number, and registered mobile number as recorded\nin government databases.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-16",
-        "text": ". If automatic verification fails, the Ministry of Labor (MoL) SHALL be able to manually verify the employer\u2019s account based on submitted registration\ndetails and/or direct contact.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-17",
-        "text": ". The system SHALL display a \u2b1b Verified Employer badge next to the names\nof verified companies to enhance trust for job seekers and provide added value to employers who complete the verification process.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-18",
-        "text": ". The system SHALL provide a company profile page that showcases the\nemployer's information, job openings, and company background.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-19",
-        "text": ". The system SHALL allow employers to upload company logo, and images to\nenhance their profile. In addition to documents such as company registration and manage uploaded documents",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-20",
-        "text": ". The system SHALL provide a dashboard for employers to manage job\npostings, view matched job seekers, create shortlists of interested or qualified candidates, and track key metrics.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-21",
-        "text": ". The system SHALL allow the employer to upload supplementary documents (i.e. company registration certificate) ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-22",
-        "text": ". The system SHALL provide a registration and onboarding process for external job sites.",
-        "status": "CLEAR"
-    },
-    {
         "id": "FR-23",
-        "text": ". The system SHOULD issue a unique API key or token to each partner for secure access, with support for optional IP whitelisting, usage limits, and\ntoken expiration management to ensure controlled and secure integration.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD issue a unique API key or token to each partner for secure access, with support for optional IP whitelisting, usage limits, and token expiration management to ensure controlled and secure integration."
     },
     {
         "id": "FR-24",
-        "text": ". The system SHOULD support job posting via a secure RESTful Push API,\nallowing external platforms to submit job opportunities directly to the job matching system.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-25",
-        "text": ". The system SHALL allow external job sites to configure data mapping between their system and the platform, provide the sites with the standard\nschema to successfully integrate with the platform",
-        "status": "CLEAR"
+        "text": "The system SHOULD support job posting via a secure RESTful Push API, allowing external platforms to submit job opportunities directly to the job matching system."
     },
     {
         "id": "FR-26",
-        "text": ". The system SHOULD provide a testing environment for external job sites to validate their integration.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide a testing environment for external job sites to validate their integration."
     },
     {
         "id": "FR-27",
-        "text": ". The system SHOULD implement comprehensive error handling and response logging by providing clear API response codes with descriptive messages for\nsuccess, failure, duplicates, and validation errors.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD implement comprehensive error handling and response logging by providing clear API response codes with descriptive messages for success, failure, duplicates, and validation errors."
     },
     {
         "id": "FR-28",
-        "text": ". The system SHOULD grant external platforms access to view submission logs for monitoring and troubleshooting purposes.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD grant external platforms access to view submission logs for monitoring and troubleshooting purposes."
     },
     {
         "id": "FR-29",
-        "text": ". The system SHOULD return a unique job ID as a confirmation response after a\njob is successfully pushed via the API, enabling accurate record-keeping and integration synchronization for external systems.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-30",
-        "text": ". The system SHALL automatically tag each job post with the name of the source platform (e.g., \u201cSource: samplejobsite.ps\u201d) and include a backlink to the\noriginal job advertisement.",
-        "status": "CLEAR"
+        "text": "The system SHOULD return a unique job ID as a confirmation response after a job is successfully pushed via the API, enabling accurate record-keeping and integration synchronization for external systems."
     },
     {
         "id": "FR-31",
-        "text": ". The system SHOULD support job synchronization of updates via the API, enabling external job sites to modify job details\u2014such as deadline extensions,\ndescription edits, or early closure/deletion/deactivation\u2014using the assigned job ID.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD support job synchronization of updates via the API, enabling external job sites to modify job details\u2014such as deadline extensions, description edits, or early closure/deletion/deactivation\u2014using the assigned job ID."
     },
     {
         "id": "FR-32",
-        "text": ". The system SHOULD provide an optional sync dashboard\u2014a lightweight web interface or endpoint\u2014that allows partners to review the status of jobs\nposted via the API, including indicators for synced, failed, pending, and archived records.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide an optional sync dashboard\u2014a lightweight web interface or endpoint\u2014that allows partners to review the status of jobs posted via the API, including indicators for synced, failed, pending, and archived records."
     },
     {
         "id": "FR-33",
-        "text": ". The system SHOULD also offer periodic or real-time access to integration\nusage statistics\u2014such as the number of jobs submitted, matched, and viewed\u2014for transparency, performance tracking, and reporting purposes.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD also offer periodic or real-time access to integration usage statistics\u2014such as the number of jobs submitted, matched, and viewed\u2014for transparency, performance tracking, and reporting purposes."
     },
     {
         "id": "FR-34",
-        "text": ". The system SHOULD provide access to the up-to-date API schema (e.g., via Swagger) and detailed field validation rules to ensure proper formatting and structure of job postings submitted through the API.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide access to the up-to-date API schema (e.g., via Swagger) and detailed field validation rules to ensure proper formatting and structure of job postings submitted through the API."
     },
     {
         "id": "FR-35",
-        "text": ". The system SHOULD provide an option for source platforms to configure whether their attribution (e.g., source platform name) appears publicly on job\npostings or is only visible within the admin panel and system logs.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide an option for source platforms to configure whether their attribution (e.g., source platform name) appears publicly on job postings or is only visible within the admin panel and system logs."
     },
     {
         "id": "FR-36",
-        "text": ". The system SHOULD maintain an audit trail at the job level, recording which external job site created or modified each posting, and display\nthis information within the MoL admin dashboard for traceability and accountability. ID Requirement",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-37",
-        "text": ". The system SHALL provide a comprehensive user management interface for administrators.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-38",
-        "text": ". The system SHALL allow authorized administrators to add and manage core entities on the platform, including job seekers, employers, and job offerings\n(opportunities).",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-39",
-        "text": ". The system SHALL provide user management capabilities for administrators,\nincluding the ability to view, approve, ban, or deactivate user accounts, reset account credentials, and monitor account statuses.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-40",
-        "text": ". The system SHALL provide tools for administrators to assist users with account recovery and technical issues, view pending employer registrations\nand approve them based on submitted profile information.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-41",
-        "text": ". The system SHALL maintain an audit log of all administrative actions for security and accountability.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-42",
-        "text": ". The system SHALL allow authorized administrators to define and\nupdate system settings if needed.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-43",
-        "text": ". The system SHALL allow authorized administrators to view and manage static reference files, including skills, jobs, trainings, and other\nrelated datasets.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-44",
-        "text": ". The system SHALL allow authorized administrators to manage system taxonomies such as the skills list, occupations catalog, training\nprograms, and other platform constants or reference values.",
-        "status": "CLEAR"
+        "text": "The system SHOULD maintain an audit trail at the job level, recording which external job site created or modified each posting, and display this information within the MoL admin dashboard for traceability and accountability."
     },
     {
         "id": "FR-45",
-        "text": ". The system SHALL allow administrators to oversee job offerings by viewing\nactive and inactive postings, changes in posts, and to suspend or remove job offerings that are deemed inappropriate or violate platform policies.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-46",
-        "text": ". The system SHALL provide comprehensive statistics and reporting features, allowing administrators to download reports on job postings by sector,\nregion, or industry; user registrations; top searches from both job seekers and employers; user interactions with job offers; and overall system metrics.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-47",
-        "text": ".",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-48",
-        "text": ". ID Requirement",
-        "status": "AMBIGUOUS"
+        "text": "The system SHALL allow administrators to oversee job offerings by viewing active and inactive postings, changes in posts, and to suspend or remove job offerings that are deemed inappropriate or violate platform policies."
     },
     {
         "id": "FR-49",
-        "text": ". The system SHALL implement secure authentication mechanisms including username/password, email verification, and multi-factor authentication\noptions.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-50",
-        "text": ". The system SHALL enforce strong password policies with configurable parameters.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-51",
-        "text": ". The system SHALL implement role-based access control to restrict access to features and data based on user roles.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-52",
-        "text": ". The system SHALL provide session management with configurable timeout settings.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-53",
-        "text": ". The system SHALL maintain detailed access logs for security monitoring and auditing. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-54",
-        "text": ". The system SHALL provide a structured job posting form for employers to create job listings.",
-        "status": "CLEAR"
+        "text": "The system SHALL implement secure authentication mechanisms including username/password, email verification, and multi-factor authentication options."
     },
     {
         "id": "FR-55",
-        "text": ". The system SHALL provide a structured job posting form that allows employers to add new job opportunities with the following fields:\n\nJob title, summary, and required skills (with support for file upload or copy/paste input)\nContract type (e.g., full-time, part-time, training, project-based)\nRequired education level\nApplication deadline with an optional auto-close feature\nWork format selection (Physical with employment location, Online, or Hybrid)\nGender, number of employees, etc\nRequired languages and proficiency levels\nLink to the job if available.\nMore detailed features on the job post to be provided.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-56",
-        "text": ". The system SHALL support standardized job categories, skills, and qualifications to facilitate accurate matching. For this requirement, the system\nSHALL ensure that all input data complies with the Schema.org JobPosting standard for semantic compatibility and structured data integrity.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-57",
-        "text": ". The system SHALL allow employers to manage their job postings by editing\njob details, extending application deadlines, and set job posting visibility (public, private, or targeted) posts when necessary.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-58",
-        "text": ". The system SHALL support job posting expiration and renewal processes. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-59",
-        "text": ". The system SHALL provide a comprehensive search interface for job seekers to find relevant opportunities.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-60",
-        "text": ". The search interface SHALL support both basic (search by single keyword) and advanced search modes based on employer-defined attributes.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-61",
-        "text": ". The system SHALL provide semantic search capabilities that understand the\nintent behind search queries.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-62",
-        "text": ". The system SHALL provide a search engine with advanced filtering capabilities, allowing job seekers to search for jobs using the following criteria:\n\nKeywords (text)\nLocation\nSalary range\nEmployment type\nDate posted\nApplication deadline\nJob-specific requirements (e.g., skills, education, training, years of experience)\nCompany sector/industry (e.g., IT, Health, NGO, Construction)",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-63",
-        "text": ". The system SHALL display search results with relevance/skills-matching\nranking and sorting options. In addition, when user login the system SHALL display recommended jobs based on results generated by AI matching engine.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-64",
-        "text": ". The system SHALL also include a favorites feature (e.g., heart button\t) for users to save jobs of interest.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-65",
-        "text": ". The system SHALL support saved searches with notification options for new matching jobs. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-66",
-        "text": ". The system SHALL allow job seekers to bookmark and save jobs by adding them to an \u201cInterested List \u201d, and to save custom search filters for future\nuse. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-67",
-        "text": ". The system SHALL provide employers with tools to manage the status of job postings.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-68",
-        "text": ". The system SHALL support the following job posting statuses: draft, active,\npaused, expired, and archived.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-69",
-        "text": ". The system SHALL maintain a history of status changes for audit and reporting purposes. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-70",
-        "text": ". The system SHALL implement AI-driven matching algorithms to connect job seekers with relevant job opportunities.",
-        "status": "CLEAR"
+        "text": "The system SHALL provide a structured job posting form that allows employers to add new job opportunities with the following fields: Job title, summary, and required skills (with support for file upload or copy/paste input) Contract type (e.g., full-time, part-time, training, project-based) Required education level Application deadline with an optional auto-close feature Work format selection (Physical with employment location, Online, or Hybrid) Gender, number of employees, etc Required languages and proficiency levels Link to the job if available. More detailed features on the job post to be provided."
     },
     {
         "id": "FR-71",
-        "text": ". The system SHALL use a scoring algorithm to calculate a match score between job seekers and job postings minimally based on the following criteria:\nSkill overlap\nEducation match\nTraining match\nLocation match\nExperience range\nSalary expectation range",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-72",
-        "text": ". The system SHALL generate shortlists of top-matching candidates (e.g., top 100) for each job posting to assist employers in the selection process.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-73",
-        "text": ". The system SHALL use natural language processing (NLP) to understand the semantic meaning of job descriptions and resumes beyond keyword\nmatching.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-74",
-        "text": ". The system SHALL perform keyword and semantic analysis on posted\njob descriptions to identify key attributes such as required skills, experience levels, and job categories.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-75",
-        "text": ". The system SHALL allow administrators to define and adjust a minimum match threshold (e.g., 60%) that determines which job matches are\ndisplayed to users.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-76",
-        "text": ". The system SHALL rank/order job postings for each job seeker based on\ntheir individual match percentage, displaying the most relevant opportunities first.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-77",
-        "text": ". The system SHALL support two-way matching, where job seekers receive ranked job opportunities based on match percentage, and employers receive reverse matches with ranked lists of suitable job\nseekers for their postings.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-78",
-        "text": ". The system SHALL allow configuration of matching parameters to adjust the importance of different factors.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-79",
-        "text": ". The system SHALL implement AI-powered resume parsing to extract\nstructured information from uploaded documents.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-80",
-        "text": ". The system SHALL extract the following information from resumes:\npersonal details, contact information, education history, work experience, skills, certifications, and achievements.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-81",
-        "text": ". The system SHALL support multiple languages in resume parsing, with primary focus on Arabic and English.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-82",
-        "text": ". The system SHALL identify and standardize skills mentioned in resumes\nto facilitate matching.",
-        "status": "CLEAR"
+        "text": "The system SHALL use a scoring algorithm to calculate a match score between job seekers and job postings minimally based on the following criteria: Skill overlap Education match Training match Location match Experience range Salary expectation range"
     },
     {
         "id": "FR-83",
-        "text": ". The system SHALL provide confidence scores for extracted information and highlight areas that may need manual verification.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-84",
-        "text": ". The system SHALL allow job seekers to review and correct parsed\ninformation. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-85",
-        "text": ". The system SHALL provide personalized job recommendations for job seekers based on their profile, preferences, and platform activity.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-86",
-        "text": ". The system SHALL recommend suitable job seekers to employers based on job requirements and matching criteria.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-87",
-        "text": ". The system SHALL use collaborative filtering to recommend jobs based on similar user behaviors and preferences.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-88",
-        "text": ". The system SHALL incorporate content-based filtering to recommend jobs similar to those the user has shown interest in.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-89",
-        "text": ". The system SHALL consider location, salary expectations, and work arrangement preferences in recommendations. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-90",
-        "text": ". The system SHALL provide employers with candidate recommendations for their job postings.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-91",
-        "text": ". The system SHALL rank candidates based on match quality, highlighting the\nstrengths and potential gaps of each candidate.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-92",
-        "text": ". The system SHALL allow employers to set minimum qualification thresholds for automatic candidate filtering.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-93",
-        "text": ". The system SHALL allow employers to search the candidate database using advanced filtering options.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-94",
-        "text": ". The system SHALL respect candidate privacy settings when making recommendations to employers.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-95",
-        "text": ". The system SHALL provide insights on candidate availability, salary expectations, and potential fit.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-96",
-        "text": ". The system SHALL allow employers to save promising candidates to talent pools for future opportunities (add to shortlist). ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-97",
-        "text": ". The system SHALL support integration with external job sites based on recommendations by MoL and PEF.",
-        "status": "CLEAR"
+        "text": "The system SHALL provide confidence scores for extracted information and highlight areas that may need manual verification."
     },
     {
         "id": "FR-98",
-        "text": ". The system SHOULD provide APIs for real-time job data synchronization with\nexternal job sites.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide APIs for real-time job data synchronization with external job sites."
     },
     {
         "id": "FR-99",
-        "text": ". The system SHOULD implement data mapping and transformation to standardize job postings from different sources.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD implement data mapping and transformation to standardize job postings from different sources."
     },
     {
         "id": "FR-100",
-        "text": ". The system SHOULD support both pull (importing jobs from external sites) and push (exporting jobs to external sites) integration models.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD support both pull (importing jobs from external sites) and push (exporting jobs to external sites) integration models."
     },
     {
         "id": "FR-101",
-        "text": ". The system SHOULD maintain synchronization logs and provide error\nhandling for failed integrations.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD maintain synchronization logs and provide error handling for failed integrations."
     },
     {
         "id": "FR-102",
-        "text": ". The system SHOULD support scheduled and on-demand synchronization options.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD support scheduled and on-demand synchronization options."
     },
     {
         "id": "FR-103",
-        "text": ". The system SHOULD provide a dashboard to monitor integration status and\ndata flow with external job sites. ID Requirement",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide a dashboard to monitor integration status and data flow with external job sites."
     },
     {
         "id": "FR-104",
-        "text": ". The system SHOULD integrate with relevant government databases for data verification and enrichment.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD integrate with relevant government databases for data verification and enrichment."
     },
     {
         "id": "FR-105",
-        "text": ". The system SHOULD support integration with the MoL and PEF existing databases and systems.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD support integration with the MoL and PEF existing databases and systems."
     },
     {
         "id": "FR-106",
-        "text": ". The system SHOULD support verification of educational credentials through integration with educational institution databases.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD support verification of educational credentials through integration with educational institution databases."
     },
     {
         "id": "FR-107",
-        "text": ". The system SHOULD provide options for identity verification through government ID systems.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide options for identity verification through government ID systems."
     },
     {
         "id": "FR-108",
-        "text": ". The system SHOULD maintain audit trails of all data exchanges with government systems.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD maintain audit trails of all data exchanges with government systems."
     },
     {
         "id": "FR-109",
-        "text": ". The system SHOULD respect data privacy regulations when accessing and\nusing government data. ID Requirement",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD respect data privacy regulations when accessing and using government data."
     },
     {
         "id": "FR-110",
-        "text": ". The system SHOULD provide a comprehensive API framework for integration with external systems.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide a comprehensive API framework for integration with external systems."
     },
     {
         "id": "FR-111",
-        "text": ". The system SHOULD implement RESTful APIs with JSON data format as the\nprimary integration method.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD implement RESTful APIs with JSON data format as the primary integration method."
     },
     {
         "id": "FR-112",
-        "text": ". The system SHOULD provide detailed API documentation with examples and testing tools.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide detailed API documentation with examples and testing tools."
     },
     {
         "id": "FR-113",
-        "text": ". The system SHOULD implement OAuth 2.0 for API authentication and authorization.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD implement OAuth 2.0 for API authentication and authorization."
     },
     {
         "id": "FR-114",
-        "text": ". The system SHOULD support API versioning to ensure backward compatibility. ID Requirement",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-115",
-        "text": ". The system SHALL track and record user activities for analysis and reporting.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-116",
-        "text": ". The system SHALL monitor job seeker activities including profile views, job searches, applications, and interactions.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-117",
-        "text": ". The system SHALL TRACK employer activities including job postings,\ncandidate searches.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-118",
-        "text": ". The system SHALL implement data retention policies for activity logs in compliance with regulations.",
-        "status": "CLEAR"
+        "text": "The system SHOULD support API versioning to ensure backward compatibility."
     },
     {
         "id": "FR-119",
-        "text": ". MOL Life dashboard should include current logins, number of current logins and last sessions, with links to these users profiles ID Requirement",
-        "status": "AMBIGUOUS"
+        "text": "MOL Life dashboard should include current logins, number of current logins and last sessions, with links to these users profiles"
     },
     {
         "id": "FR-120",
-        "text": ". The system SHOULD generate employment statistics and labor market insights from platform data.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD generate employment statistics and labor market insights from platform data."
     },
     {
         "id": "FR-121",
-        "text": ". The system SHOULD track key metrics including job posting trends,\napplication rates, hiring rates, and time-to-fill.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD track key metrics including job posting trends, application rates, hiring rates, and time-to-fill."
     },
     {
         "id": "FR-122",
-        "text": ". The system SHOULD provide industry-specific analytics on job market demand and supply.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide industry-specific analytics on job market demand and supply."
     },
     {
         "id": "FR-123",
-        "text": ". The system SHOULD analyze skill demand trends to identify emerging requirements and skill gaps.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD analyze skill demand trends to identify emerging requirements and skill gaps."
     },
     {
         "id": "FR-124",
-        "text": ". The system SHOULD generate geographic distribution reports for jobs and candidates.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD generate geographic distribution reports for jobs and candidates."
     },
     {
         "id": "FR-125",
-        "text": ". The system SHOULD provide salary range analytics by industry, position, and location.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide salary range analytics by industry, position, and location."
     },
     {
         "id": "FR-126",
-        "text": ". The system SHOULD track employment outcomes and career progression where data is available.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD track employment outcomes and career progression where data is available."
     },
     {
         "id": "FR-127",
-        "text": ". The system SHOULD generate periodic labor market reports for government stakeholders. ID Requirement",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD generate periodic labor market reports for government stakeholders."
     },
     {
         "id": "FR-128",
-        "text": ". The system SHOULD monitor and report on system performance metrics.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD monitor and report on system performance metrics."
     },
     {
         "id": "FR-129",
-        "text": ". The system SHOULD track matching algorithm performance including accuracy, precision, recall, and user satisfaction.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD track matching algorithm performance including accuracy, precision, recall, and user satisfaction."
     },
     {
         "id": "FR-130",
-        "text": ". The system SHOULD monitor system usage patterns including peak times,\npopular features, and user engagement.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD monitor system usage patterns including peak times, popular features, and user engagement."
     },
     {
         "id": "FR-131",
-        "text": ". The system SHOULD track technical performance metrics including response times, resource utilization, and error rates.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD track technical performance metrics including response times, resource utilization, and error rates."
     },
     {
         "id": "FR-132",
-        "text": ". The system SHOULD provide dashboards for administrators to monitor system health and performance.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide dashboards for administrators to monitor system health and performance."
     },
     {
         "id": "FR-133",
-        "text": ". The system SHOULD generate alerts for performance issues or anomalies.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD generate alerts for performance issues or anomalies."
     },
     {
         "id": "FR-134",
-        "text": ". The system SHOULD maintain historical performance data for trend analysis and capacity planning. ID Requirement",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD maintain historical performance data for trend analysis and capacity planning."
     },
     {
         "id": "FR-135",
-        "text": ". The system SHOULD provide a flexible reporting framework for generating\ncustom reports through seamless integration with existing and available reporting tools such as Microsoft Power BI.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide a flexible reporting framework for generating custom reports through seamless integration with existing and available reporting tools such as Microsoft Power BI."
     },
     {
         "id": "FR-136",
-        "text": ". The system SHOULD allow administrators to define report templates with configurable parameters.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD allow administrators to define report templates with configurable parameters."
     },
     {
         "id": "FR-137",
-        "text": ". The system SHOULD support various report formats including tabular data, charts, and visualizations.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD support various report formats including tabular data, charts, and visualizations."
     },
     {
         "id": "FR-138",
-        "text": ". The system SHOULD allow scheduling of recurring reports with automated distribution.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD allow scheduling of recurring reports with automated distribution."
     },
     {
         "id": "FR-139",
-        "text": ". The system SHOULD support export of reports in common formats (PDF, Excel, CSV).",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD support export of reports in common formats (PDF, Excel, CSV)."
     },
     {
         "id": "FR-140",
-        "text": ". The system SHOULD provide a report builder interface for users with\nappropriate permissions.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD provide a report builder interface for users with appropriate permissions."
     },
     {
         "id": "FR-141",
-        "text": ". The system SHOULD maintain a library of saved reports for quick access.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHOULD maintain a library of saved reports for quick access."
     },
     {
         "id": "FR-142",
-        "text": ". The system SHOULD implement access controls to ensure users can only view reports appropriate to their role. ID Requirement",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-143",
-        "text": ". The system SHALL send email notifications for important events and updates.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-144",
-        "text": ". The system SHALL support customizable email templates with dynamic content.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-145",
-        "text": ". The system SHALL allow users to configure their email notification preferences.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-146",
-        "text": ". The system SHALL support both immediate and digest email notifications.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-147",
-        "text": ". The system SHALL log all emails notifications.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-148",
-        "text": ". The system SHALL comply with anti-spam regulations and best practices. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-149",
-        "text": ". The system SHALL provide an in-app notification center for users.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-150",
-        "text": ". The system SHALL display real-time notifications for important events and updates.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-151",
-        "text": ". The system SHALL provide weekly job recommendations to job seekers based on their search history and profile information.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-152",
-        "text": ". The system SHALL maintain a notification history for users to review past\nnotifications.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-153",
-        "text": ". The system SHALL allow users to configure their in-app notification preferences.",
-        "status": "CLEAR"
+        "text": "The system SHOULD implement access controls to ensure users can only view reports appropriate to their role."
     },
     {
         "id": "FR-154",
-        "text": ". The system SHALL support different notification types with appropriate\nvisual indicators.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-155",
-        "text": ". The system SHALL provide notification management tools for users to mark as read, delete, or take action on notifications. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-156",
-        "text": ". The system SHALL provide SMS notifications for critical updates and time- sensitive information (byt the integration with SMS service providers (gateway)). Such as welcoming SMS with a code for user registration,\nemployer registration, and SMS for resetting the password.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-157",
-        "text": ". The system SHALL allow users to opt-in to SMS notifications and provide their mobile number.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-158",
-        "text": ". The system SHALL limit SMS notifications to essential communications to avoid overwhelming users.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-159",
-        "text": ". The system SHALL track SMS delivery status for monitoring and troubleshooting. + loging as sms messages",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-160",
-        "text": ". The system SHALL comply with telecommunications regulations regarding\nSMS messaging. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-161",
-        "text": ". The system SHALL provide a content management system (CMS) for publishing news and updates.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-162",
-        "text": ". The system SHALL allow administrators to create, edit, and publish articles and announcements.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-163",
-        "text": ". The system SHALL support rich text formatting, images, and embedded\nmedia in content.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-164",
-        "text": ". The system SHALL provide content categorization and tagging for organization.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-165",
-        "text": ". The system SHALL display relevant news and updates on user dashboards\nbased on their profile.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-166",
-        "text": ". The system SHALL maintain an archive of past news and updates with search functionality. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-167",
-        "text": ". The system SHALL provide a comprehensive FAQ and help center. In addition, list of laws, regulations and contract types regulations.",
-        "status": "CLEAR"
+        "text": "The system SHALL support different notification types with appropriate visual indicators."
     },
     {
         "id": "FR-168",
-        "text": ". The system SHALL organize help content by topic and user role for easy navigation.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "FR-169",
-        "text": ". The system SHALL implement a search function for help content.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-170",
-        "text": ". The system SHALL provide context-sensitive help throughout the platform.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-171",
-        "text": ". The system SHALL allow administrators to update help content as the system evolves.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-172",
-        "text": ". The system SHALL collect user feedback on help content effectiveness.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-173",
-        "text": ". The system SHALL provide guided tours and tutorials for new users.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "FR-174",
-        "text": ". The system SHALL support multimedia help content including videos and interactive guides. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-01",
-        "text": ". The system SHALL provide page load times of less than 3 seconds for standard operations under normal load conditions.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-02",
-        "text": ". The system SHALL provide search results within 2 seconds for standard\nsearch queries.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-03",
-        "text": ". The system SHALL complete AI matching operations within 5 seconds for individual job-candidate matches.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-04",
-        "text": ". The system SHALL process batch operations (e.g., bulk candidate matching) within a timeframe proportional to the batch size, not exceeding 2 minutes for standard operations.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-05",
-        "text": ". The system SHALL maintain response time degradation of no more than 50% during peak load periods. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-06",
-        "text": ". The system SHALL support at least 1,000 concurrent users during normal operations.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-07",
-        "text": ". The system SHALL support at least 5,000 concurrent users during peak\nperiods.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-08",
-        "text": ". The system SHALL process at least 100 job applications per minute during peak periods.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-09",
-        "text": ". The system SHALL support at least 500 new job postings per day.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-10",
-        "text": ". The system SHALL support at least 1,000 new user registrations per day. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-11",
-        "text": ". The system SHALL operate within the allocated server resources, utilizing no more than 80% of CPU capacity during normal operations.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-12",
-        "text": ". The system SHALL utilize no more than 80% of available memory during normal operations.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-13",
-        "text": ". The system SHALL require no more than 5TB of storage for the first year of operation, with a growth plan for subsequent years.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-14",
-        "text": ". The system SHALL optimize database queries to minimize I/O operations and\nresponse times.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-15",
-        "text": ". The system SHALL implement caching mechanisms to reduce resource utilization for frequently accessed data. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-16",
-        "text": ". The system SHALL be designed to scale horizontally by adding more server instances to handle increased load.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-17",
-        "text": ". The system SHALL be designed to scale vertically by utilizing additional\nresources on existing servers.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-18",
-        "text": ". The system SHALL support a minimum of 100,000 registered job seekers without performance degradation.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-19",
-        "text": ". The system SHALL support a minimum of 10,000 registered employers\nwithout performance degradation.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-20",
-        "text": ". The system SHALL support a minimum of 50,000 active job postings without performance degradation.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-21",
-        "text": ". The system SHALL be designed to accommodate a 100% annual growth in user base and transaction volume for at least the first three years of\noperation. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-22",
-        "text": ". The system SHALL implement multi-factor authentication for administrative accounts and as an option for all users.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-23",
-        "text": ". The system SHALL enforce strong password policies, including minimum length, complexity, and regular password changes.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-24",
-        "text": ". The system SHALL implement role-based access control (RBAC) to restrict access to features and data based on user roles.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-25",
-        "text": ". The system SHALL maintain detailed access logs for all authentication and authorization events.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-26",
-        "text": ". The system SHALL automatically lock accounts after a specified number of failed login attempts.",
-        "status": "CLEAR"
+        "text": "The system SHALL organize help content by topic and user role for easy navigation."
     },
     {
         "id": "NFR-27",
-        "text": ". The system SHALL implement secure session management with appropriate timeout settings.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-28",
-        "text": ". The system SHALL support OAuth 2.0 and OpenID Connect for third-party authentication where applicable. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-29",
-        "text": ". The system SHALL encrypt all sensitive data at rest using industry-standard encryption algorithms (AES-256 or equivalent).",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-30",
-        "text": ". The system SHALL encrypt all data in transit using TLS 1.3 or higher.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-31",
-        "text": ". The system SHALL implement data masking for sensitive information displayed in the user interface.",
-        "status": "CLEAR"
+        "text": "The system SHALL implement secure session management with appropriate timeout settings."
     },
     {
         "id": "NFR-32",
-        "text": ". The system SHALL implement secure key management practices for encryption keys.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHALL implement secure key management practices for encryption keys."
     },
     {
         "id": "NFR-33",
-        "text": ". The system SHALL provide mechanisms for secure data deletion when required.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-34",
-        "text": ". The system SHALL implement database-level encryption for sensitive tables and columns.",
-        "status": "CLEAR"
+        "text": "The system SHALL provide mechanisms for secure data deletion when required."
     },
     {
         "id": "NFR-35",
-        "text": ". The system SHALL maintain separate environments for development, testing, and production with appropriate data isolation. ID Requirement",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-36",
-        "text": ". The system SHALL comply with Palestinian data protection regulations and incorporate GDPR principles as best practice.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-37",
-        "text": ". The system SHALL provide mechanisms for users to view, export, and delete\ntheir personal data in accordance with data protection regulations.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-38",
-        "text": ". The system SHALL maintain audit trails of all data access and modifications for compliance purposes.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-39",
-        "text": ". The system SHALL implement data minimization principles, collecting only necessary information for system functionality.",
-        "status": "CLEAR"
+        "text": "The system SHALL maintain separate environments for development, testing, and production with appropriate data isolation."
     },
     {
         "id": "NFR-40",
-        "text": ". The system SHALL provide clear privacy notices and obtain appropriate consent for data collection and processing.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-41",
-        "text": ". The system SHALL implement data retention policies in compliance with legal requirements.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-42",
-        "text": ". The system SHALL support data protection impact assessments (DPIA) for high-risk processing activities. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-43",
-        "text": ". The system SHALL implement comprehensive logging of security-relevant events.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-44",
-        "text": ". The system SHALL provide real-time monitoring and alerting for security\nincidents.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-45",
-        "text": ". The system SHALL implement intrusion detection and prevention mechanisms.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-46",
-        "text": ". The system SHALL conduct regular security scans and vulnerability\nassessments.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-47",
-        "text": ". The system SHALL have a documented incident response plan for security breaches.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-48",
-        "text": ". The system SHALL implement rate limiting and other protections against denial-of-service attacks.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-49",
-        "text": ". The system SHALL provide mechanisms for security patch management and updates. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-50",
-        "text": ". The system SHALL maintain 99.5% availability during standard operating hours (8:00 AM to 8:00 PM Palestine time, Sunday through Thursday).",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-51",
-        "text": ". The system SHALL maintain 99.0% availability during non-standard hours.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-52",
-        "text": ". The system SHALL schedule maintenance windows during periods of lowest expected usage.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-53",
-        "text": ". The system SHALL provide advance notice of scheduled maintenance to all\nusers. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-55",
-        "text": ". The system SHALL continue to function with degraded performance in the event of component failures.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-56",
-        "text": ". The system SHALL implement database replication to prevent data loss in\ncase of database failures.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-57",
-        "text": ". The system SHALL implement load balancing across multiple servers to distribute traffic and prevent overload.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-58",
-        "text": ". The system SHALL automatically recover from common failure scenarios without manual intervention.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-59",
-        "text": ". The system SHALL implement circuit breaker patterns for external service dependencies to prevent cascading failures. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-60",
-        "text": ". The system SHALL maintain regular backups of all data, with full backups at least weekly and incremental backups daily.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-61",
-        "text": ". The system SHALL store backups in geographically separate locations from the primary system.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-62",
-        "text": ". The system SHALL define and document Recovery Time Objective (RTO) of 4 hours for critical functions and 24 hours for non-critical functions.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-63",
-        "text": ". The system SHALL define and document Recovery Point Objective (RPO) of 1\nhour, meaning no more than 1 hour of data loss in a disaster scenario.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-64",
-        "text": ". The system SHALL have a documented and tested disaster recovery plan.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-65",
-        "text": ". The system SHALL conduct disaster recovery drills at least twice per year. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-66",
-        "text": ". The system SHALL provide meaningful error messages to users without exposing sensitive system information.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-67",
-        "text": ". The system SHALL log detailed error information for troubleshooting and monitoring.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-68",
-        "text": ". The system SHALL handle input validation errors gracefully, providing clear feedback to users.",
-        "status": "CLEAR"
+        "text": "The system SHALL provide clear privacy notices and obtain appropriate consent for data collection and processing."
     },
     {
         "id": "NFR-69",
-        "text": ". The system SHALL implement appropriate retry mechanisms for transient errors.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-70",
-        "text": ". The system SHALL maintain system stability when encountering unexpected inputs or conditions. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-71",
-        "text": ". The system SHALL provide a consistent and intuitive user interface across all functions.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-72",
-        "text": ". The system SHALL implement responsive design to support various screen\nsizes and devices.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-73",
-        "text": ". The system SHALL provide clear navigation and information architecture.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-74",
-        "text": ". The system SHALL use consistent terminology and design patterns throughout the interface.",
-        "status": "CLEAR"
+        "text": "The system SHALL implement appropriate retry mechanisms for transient errors."
     },
     {
         "id": "NFR-75",
-        "text": ". The system SHALL provide appropriate feedback for user actions.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-76",
-        "text": ". The system SHALL minimize the number of steps required to complete common tasks.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-77",
-        "text": ". The system SHALL provide context-sensitive help and guidance. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-78",
-        "text": ". The system SHALL comply with Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-79",
-        "text": ". The system SHALL support screen readers and other assistive technologies.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-80",
-        "text": ". The system SHALL provide keyboard navigation for all functions.",
-        "status": "CLEAR"
+        "text": "The system SHALL provide appropriate feedback for user actions."
     },
     {
         "id": "NFR-81",
-        "text": ". The system SHALL ensure sufficient color contrast for text and interactive elements.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-82",
-        "text": ". The system SHALL provide text alternatives for non-text content.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-83",
-        "text": ". The system SHALL ensure that form elements have associated labels.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-84",
-        "text": ". The system SHALL provide mechanisms to pause, stop, or hide moving content. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-85",
-        "text": ". The system SHALL provide full functionality in both Arabic and English languages.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-86",
-        "text": ". The system SHALL allow users to switch between languages at any point in\nthe application.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-87",
-        "text": ". The system SHALL support right-to-left (RTL) text direction for Arabic content.",
-        "status": "CLEAR"
+        "text": "The system SHALL ensure sufficient color contrast for text and interactive elements."
     },
     {
         "id": "NFR-88",
-        "text": ". The system SHALL ensure that date, time, and number formats are appropriate for the selected language and locale.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-89",
-        "text": ". The system SHALL provide a consistent translation quality across all interface elements.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-90",
-        "text": ". The system SHALL support multilingual content for job postings and user profiles.",
-        "status": "CLEAR"
+        "text": "The system SHALL ensure that date, time, and number formats are appropriate for the selected language and locale."
     },
     {
         "id": "NFR-91",
-        "text": ". The system SHALL implement language detection to suggest the appropriate language based on user settings and location. ID Requirement",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-92",
-        "text": ". The system SHALL provide a personalized user experience based on user preferences and behavior.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-93",
-        "text": ". The system SHALL implement progressive disclosure of complex features to\navoid overwhelming users.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-94",
-        "text": ". The system SHALL provide clear onboarding processes for new users.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-95",
-        "text": ". The system SHALL collect and incorporate user feedback for continuous improvement.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-96",
-        "text": ". The system SHALL support different user skill levels, from novice to expert.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-97",
-        "text": ". The system SHALL minimize user cognitive load by presenting information in manageable chunks.",
-        "status": "CLEAR"
+        "text": "The system SHALL implement language detection to suggest the appropriate language based on user settings and location."
     },
     {
         "id": "NFR-98",
-        "text": ". The system SHALL provide appropriate defaults to reduce the need for user configuration. ID Requirement",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-99",
-        "text": ". The system SHALL be designed with a modular architecture to facilitate maintenance and updates.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-100",
-        "text": ". The system SHALL follow consistent coding standards and best practices.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-101",
-        "text": ". The system SHALL include comprehensive technical documentation for all components.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-102",
-        "text": ". The system SHALL implement logging and monitoring to facilitate troubleshooting.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-103",
-        "text": ". The system SHALL support configuration changes without requiring code modifications.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-104",
-        "text": ". The system SHALL implement automated testing with a minimum of 80% code coverage.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-105",
-        "text": ". The system SHALL support version control for all system artifacts. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-106",
-        "text": ". The system SHALL be designed to operate in different hosting environments (on-premises, cloud, or hybrid).",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-107",
-        "text": ". The system SHALL use containerization technologies to ensure consistent\ndeployment across environments.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-108",
-        "text": ". The system SHALL minimize dependencies on specific hardware or operating system features.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-109",
-        "text": ". The system SHALL support database portability through abstraction layers.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-110",
-        "text": ". The system SHALL provide documented deployment procedures for different environments.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-111",
-        "text": ". The system SHALL support automated deployment and configuration. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-112",
-        "text": ". The system SHALL be compatible with the latest versions of major web browsers (Chrome, Firefox, Safari, Edge).",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-113",
-        "text": ". The system SHALL be compatible with the previous two major versions of\nsupported browsers.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-114",
-        "text": ". The system SHALL be compatible with mobile browsers on iOS and Android platforms.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-115",
-        "text": ". The system SHALL be compatible with standard email clients for notification\ndelivery.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-116",
-        "text": ". The system SHALL support standard file formats for data import and export (CSV, JSON, XML).",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-117",
-        "text": ". The system SHALL implement standard protocols for integration with external systems. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-118",
-        "text": ". The system SHALL comply with all applicable Palestinian labor laws and regulations.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-119",
-        "text": ". The system SHALL incorporate GDPR principles as best practice for data protection.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-120",
-        "text": ". The system SHALL comply with accessibility regulations and standards.",
-        "status": "CLEAR"
+        "text": "The system SHALL provide appropriate defaults to reduce the need for user configuration."
     },
     {
         "id": "NFR-121",
-        "text": ". The system SHALL maintain appropriate records for regulatory compliance and auditing.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-122",
-        "text": ". The system SHALL implement mechanisms to stay current with changing\nregulatory requirements. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-123",
-        "text": ". The system SHALL respect intellectual property rights in all content and functionality.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-124",
-        "text": ". The system SHALL properly license all third-party components and libraries.",
-        "status": "CLEAR"
+        "text": "The system SHALL maintain appropriate records for regulatory compliance and auditing."
     },
     {
         "id": "NFR-125",
-        "text": ". The system SHALL provide appropriate attribution for third-party content.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-126",
-        "text": ". The system SHALL implement mechanisms to prevent copyright infringement by users. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-127",
-        "text": ". The system SHALL define and document service level agreements (SLAs) for system availability.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-128",
-        "text": ". The system SHALL define and document SLAs for incident response and\nresolution times.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-129",
-        "text": ". The system SHALL define and document SLAs for support services.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-130",
-        "text": ". The system SHALL implement monitoring and reporting mechanisms to track SLA compliance.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-131",
-        "text": ". The system SHALL define escalation procedures for SLA violations. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-132",
-        "text": ". The system SHALL implement comprehensive logging for all system components.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-133",
-        "text": ". The system SHALL provide real-time monitoring of system health and performance.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-134",
-        "text": ". The system SHALL generate alerts for critical system events and performance thresholds.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-135",
-        "text": ". The system SHALL maintain log retention policies in compliance with legal requirements.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-136",
-        "text": ". The system SHALL provide dashboards for monitoring system status and performance metrics.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-137",
-        "text": ". The system SHALL implement log aggregation and analysis tools. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-138",
-        "text": ". The system SHALL perform automated backups according to defined schedules.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-139",
-        "text": ". The system SHALL verify backup integrity through automated testing.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-140",
-        "text": ". The system SHALL provide mechanisms for point-in-time recovery.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-141",
-        "text": ". The system SHALL document and test restoration procedures.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-142",
-        "text": ". The system SHALL maintain backup history and audit trails. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-143",
-        "text": ". The system SHALL provide administrative interfaces for system configuration and management.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-144",
-        "text": ". The system SHALL support role-based access for administrative functions.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-145",
-        "text": ". The system SHALL provide tools for user management and support.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-146",
-        "text": ". The system SHALL implement change management procedures for system modifications.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-147",
-        "text": ". The system SHALL provide mechanisms for content moderation and management.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-148",
-        "text": ". The system SHALL support system health checks and diagnostics. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-149",
-        "text": ". The system SHALL provide comprehensive user documentation for all user roles.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-150",
-        "text": ". The system SHALL provide technical documentation for system administrators and developers.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-151",
-        "text": ". The system SHALL maintain up-to-date system architecture and design documentation.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-152",
-        "text": ". The system SHALL provide API documentation for integration partners.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-153",
-        "text": ". The system SHALL document all configuration parameters and their effects.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-154",
-        "text": ". The system SHALL provide troubleshooting guides and known issue documentation. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-155",
-        "text": ". The system SHALL respect cultural norms and sensitivities in the Palestinian context.",
-        "status": "CLEAR"
+        "text": "The system SHALL provide appropriate attribution for third-party content."
     },
     {
         "id": "NFR-156",
-        "text": ". The system SHALL use appropriate terminology and language for the local context.",
-        "status": "AMBIGUOUS"
+        "text": "The system SHALL use appropriate terminology and language for the local context."
     },
     {
         "id": "NFR-157",
-        "text": ". The system SHALL support local date and time formats, including Hijri calendar references where appropriate.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-158",
-        "text": ". The system SHALL consider gender sensitivities in user interfaces and\ncommunications. ID Requirement",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-159",
-        "text": ". The system SHALL use politically neutral terminology in system interfaces and documentation.",
-        "status": "CLEAR"
-    },
-    {
-        "id": "NFR-160",
-        "text": ". The system SHALL respect the political sensitivities of the region in geographic references and maps.",
-        "status": "CLEAR"
+        "text": "The system SHALL support local date and time formats, including Hijri calendar references where appropriate."
     },
     {
         "id": "NFR-161",
-        "text": ". The system SHALL implement appropriate content moderation policies for politically sensitive content.",
-        "status": "AMBIGUOUS"
-    },
-    {
-        "id": "NFR-162",
-        "text": ". The system SHALL ensure equitable access for users across all Palestinian territories, including Gaza and the West Bank (including East Jerusalem).",
-        "status": "CLEAR"
+        "text": "The system SHALL implement appropriate content moderation policies for politically sensitive content."
     }
 ]

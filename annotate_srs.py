@@ -15,6 +15,10 @@ with open("duplicates_grouped.json", "r", encoding="utf-8") as f:
 with open("ambiguity_report.json", "r", encoding="utf-8") as f:
     ambiguity_data = json.load(f)
 
+# If requirements stored as list, convert to dictionary
+if isinstance(requirements, list):
+    requirements = {item["id"]: item["text"] for item in requirements}
+
 # =========================
 # PROCESS DUPLICATES
 # =========================
@@ -32,7 +36,7 @@ for original_id, dup_list in duplicates_grouped.items():
 
 # =========================
 # PROCESS AMBIGUOUS
-# (Exclude duplicates)
+# (ambiguity_report.json already contains ONLY ambiguous)
 # =========================
 
 ambiguous_requirements = []
@@ -40,14 +44,35 @@ ambiguous_requirements = []
 for item in ambiguity_data:
     req_id = item["id"]
 
-    # Skip if it is duplicate (we remove those)
+    # Skip duplicates
     if req_id in duplicate_removed_ids:
         continue
 
-    if item["status"] == "AMBIGUOUS":
-        ambiguous_requirements.append({
+    ambiguous_requirements.append({
+        "id": req_id,
+        "text": item["text"]
+    })
+
+# =========================
+# GRAMMAR / FORMAT VALIDATION
+# =========================
+
+format_issues = []
+
+for req_id, text in requirements.items():
+
+    # Skip duplicates (since removed later)
+    if req_id in duplicate_removed_ids:
+        continue
+
+    text_lower = text.lower()
+
+    # Check if SHALL or SHOULD exists
+    if "shall" not in text_lower and "should" not in text_lower:
+        format_issues.append({
             "id": req_id,
-            "text": item["text"]
+            "text": text,
+            "reason": "Missing SHALL/SHOULD keyword"
         })
 
 # =========================
@@ -59,10 +84,12 @@ annotated_srs = {
         "total_requirements": len(requirements),
         "duplicate_groups": len(duplicates_grouped),
         "duplicates_removed": len(duplicate_removed_ids),
-        "ambiguous_count": len(ambiguous_requirements)
+        "ambiguous_count": len(ambiguous_requirements),
+        "format_issue_count": len(format_issues)
     },
     "duplicates": duplicate_pairs,
-    "ambiguous_requirements": ambiguous_requirements
+    "ambiguous_requirements": ambiguous_requirements,
+    "format_issues": format_issues
 }
 
 # =========================
@@ -80,3 +107,4 @@ print(f"Total requirements: {len(requirements)}")
 print(f"Duplicate groups: {len(duplicates_grouped)}")
 print(f"Duplicates removed: {len(duplicate_removed_ids)}")
 print(f"Ambiguous (non-duplicate): {len(ambiguous_requirements)}")
+print(f"Format issues (Missing SHALL/SHOULD): {len(format_issues)}")

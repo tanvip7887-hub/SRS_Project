@@ -1,9 +1,10 @@
 {
     "summary": {
-        "total_requirements": 335,
-        "duplicate_groups": 8,
-        "duplicates_removed": 9,
-        "ambiguous_count": 77
+        "total_requirements": 333,
+        "duplicate_groups": 10,
+        "duplicates_removed": 10,
+        "ambiguous_count": 74,
+        "format_issue_count": 0
     },
     "duplicates": [
         {
@@ -19,20 +20,24 @@
             "req2": "NFR-27"
         },
         {
+            "req1": "FR-53",
+            "req2": "NFR-25"
+        },
+        {
+            "req1": "FR-128",
+            "req2": "FR-131"
+        },
+        {
+            "req1": "FR-170",
+            "req2": "NFR-77"
+        },
+        {
             "req1": "NFR-06",
             "req2": "NFR-07"
         },
         {
             "req1": "NFR-16",
             "req2": "NFR-17"
-        },
-        {
-            "req1": "NFR-18",
-            "req2": "NFR-20"
-        },
-        {
-            "req1": "NFR-18",
-            "req2": "NFR-19"
         },
         {
             "req1": "NFR-67",
@@ -46,311 +51,300 @@
     "ambiguous_requirements": [
         {
             "id": "FR-23",
-            "text": ". The system SHOULD issue a unique API key or token to each partner for secure access, with support for optional IP whitelisting, usage limits, and\ntoken expiration management to ensure controlled and secure integration."
+            "text": "The system SHOULD issue a unique API key or token to each partner for secure access, with support for optional IP whitelisting, usage limits, and token expiration management to ensure controlled and secure integration."
         },
         {
             "id": "FR-24",
-            "text": ". The system SHOULD support job posting via a secure RESTful Push API,\nallowing external platforms to submit job opportunities directly to the job matching system."
+            "text": "The system SHOULD support job posting via a secure RESTful Push API, allowing external platforms to submit job opportunities directly to the job matching system."
         },
         {
             "id": "FR-26",
-            "text": ". The system SHOULD provide a testing environment for external job sites to validate their integration."
+            "text": "The system SHOULD provide a testing environment for external job sites to validate their integration."
         },
         {
             "id": "FR-27",
-            "text": ". The system SHOULD implement comprehensive error handling and response logging by providing clear API response codes with descriptive messages for\nsuccess, failure, duplicates, and validation errors."
+            "text": "The system SHOULD implement comprehensive error handling and response logging by providing clear API response codes with descriptive messages for success, failure, duplicates, and validation errors."
         },
         {
             "id": "FR-28",
-            "text": ". The system SHOULD grant external platforms access to view submission logs for monitoring and troubleshooting purposes."
+            "text": "The system SHOULD grant external platforms access to view submission logs for monitoring and troubleshooting purposes."
         },
         {
             "id": "FR-29",
-            "text": ". The system SHOULD return a unique job ID as a confirmation response after a\njob is successfully pushed via the API, enabling accurate record-keeping and integration synchronization for external systems."
+            "text": "The system SHOULD return a unique job ID as a confirmation response after a job is successfully pushed via the API, enabling accurate record-keeping and integration synchronization for external systems."
         },
         {
             "id": "FR-31",
-            "text": ". The system SHOULD support job synchronization of updates via the API, enabling external job sites to modify job details\u2014such as deadline extensions,\ndescription edits, or early closure/deletion/deactivation\u2014using the assigned job ID."
+            "text": "The system SHOULD support job synchronization of updates via the API, enabling external job sites to modify job details\u2014such as deadline extensions, description edits, or early closure/deletion/deactivation\u2014using the assigned job ID."
         },
         {
             "id": "FR-32",
-            "text": ". The system SHOULD provide an optional sync dashboard\u2014a lightweight web interface or endpoint\u2014that allows partners to review the status of jobs\nposted via the API, including indicators for synced, failed, pending, and archived records."
+            "text": "The system SHOULD provide an optional sync dashboard\u2014a lightweight web interface or endpoint\u2014that allows partners to review the status of jobs posted via the API, including indicators for synced, failed, pending, and archived records."
         },
         {
             "id": "FR-33",
-            "text": ". The system SHOULD also offer periodic or real-time access to integration\nusage statistics\u2014such as the number of jobs submitted, matched, and viewed\u2014for transparency, performance tracking, and reporting purposes."
+            "text": "The system SHOULD also offer periodic or real-time access to integration usage statistics\u2014such as the number of jobs submitted, matched, and viewed\u2014for transparency, performance tracking, and reporting purposes."
         },
         {
             "id": "FR-34",
-            "text": ". The system SHOULD provide access to the up-to-date API schema (e.g., via Swagger) and detailed field validation rules to ensure proper formatting and structure of job postings submitted through the API."
+            "text": "The system SHOULD provide access to the up-to-date API schema (e.g., via Swagger) and detailed field validation rules to ensure proper formatting and structure of job postings submitted through the API."
         },
         {
             "id": "FR-35",
-            "text": ". The system SHOULD provide an option for source platforms to configure whether their attribution (e.g., source platform name) appears publicly on job\npostings or is only visible within the admin panel and system logs."
+            "text": "The system SHOULD provide an option for source platforms to configure whether their attribution (e.g., source platform name) appears publicly on job postings or is only visible within the admin panel and system logs."
         },
         {
             "id": "FR-36",
-            "text": ". The system SHOULD maintain an audit trail at the job level, recording which external job site created or modified each posting, and display\nthis information within the MoL admin dashboard for traceability and accountability. ID Requirement"
+            "text": "The system SHOULD maintain an audit trail at the job level, recording which external job site created or modified each posting, and display this information within the MoL admin dashboard for traceability and accountability."
         },
         {
             "id": "FR-45",
-            "text": ". The system SHALL allow administrators to oversee job offerings by viewing\nactive and inactive postings, changes in posts, and to suspend or remove job offerings that are deemed inappropriate or violate platform policies."
-        },
-        {
-            "id": "FR-47",
-            "text": "."
-        },
-        {
-            "id": "FR-48",
-            "text": ". ID Requirement"
+            "text": "The system SHALL allow administrators to oversee job offerings by viewing active and inactive postings, changes in posts, and to suspend or remove job offerings that are deemed inappropriate or violate platform policies."
         },
         {
             "id": "FR-49",
-            "text": ". The system SHALL implement secure authentication mechanisms including username/password, email verification, and multi-factor authentication\noptions."
+            "text": "The system SHALL implement secure authentication mechanisms including username/password, email verification, and multi-factor authentication options."
         },
         {
             "id": "FR-55",
-            "text": ". The system SHALL provide a structured job posting form that allows employers to add new job opportunities with the following fields:\n\nJob title, summary, and required skills (with support for file upload or copy/paste input)\nContract type (e.g., full-time, part-time, training, project-based)\nRequired education level\nApplication deadline with an optional auto-close feature\nWork format selection (Physical with employment location, Online, or Hybrid)\nGender, number of employees, etc\nRequired languages and proficiency levels\nLink to the job if available.\nMore detailed features on the job post to be provided."
+            "text": "The system SHALL provide a structured job posting form that allows employers to add new job opportunities with the following fields: Job title, summary, and required skills (with support for file upload or copy/paste input) Contract type (e.g., full-time, part-time, training, project-based) Required education level Application deadline with an optional auto-close feature Work format selection (Physical with employment location, Online, or Hybrid) Gender, number of employees, etc Required languages and proficiency levels Link to the job if available. More detailed features on the job post to be provided."
         },
         {
             "id": "FR-71",
-            "text": ". The system SHALL use a scoring algorithm to calculate a match score between job seekers and job postings minimally based on the following criteria:\nSkill overlap\nEducation match\nTraining match\nLocation match\nExperience range\nSalary expectation range"
+            "text": "The system SHALL use a scoring algorithm to calculate a match score between job seekers and job postings minimally based on the following criteria: Skill overlap Education match Training match Location match Experience range Salary expectation range"
         },
         {
             "id": "FR-83",
-            "text": ". The system SHALL provide confidence scores for extracted information and highlight areas that may need manual verification."
+            "text": "The system SHALL provide confidence scores for extracted information and highlight areas that may need manual verification."
         },
         {
             "id": "FR-98",
-            "text": ". The system SHOULD provide APIs for real-time job data synchronization with\nexternal job sites."
+            "text": "The system SHOULD provide APIs for real-time job data synchronization with external job sites."
         },
         {
             "id": "FR-99",
-            "text": ". The system SHOULD implement data mapping and transformation to standardize job postings from different sources."
+            "text": "The system SHOULD implement data mapping and transformation to standardize job postings from different sources."
         },
         {
             "id": "FR-100",
-            "text": ". The system SHOULD support both pull (importing jobs from external sites) and push (exporting jobs to external sites) integration models."
+            "text": "The system SHOULD support both pull (importing jobs from external sites) and push (exporting jobs to external sites) integration models."
         },
         {
             "id": "FR-101",
-            "text": ". The system SHOULD maintain synchronization logs and provide error\nhandling for failed integrations."
+            "text": "The system SHOULD maintain synchronization logs and provide error handling for failed integrations."
         },
         {
             "id": "FR-102",
-            "text": ". The system SHOULD support scheduled and on-demand synchronization options."
+            "text": "The system SHOULD support scheduled and on-demand synchronization options."
         },
         {
             "id": "FR-103",
-            "text": ". The system SHOULD provide a dashboard to monitor integration status and\ndata flow with external job sites. ID Requirement"
+            "text": "The system SHOULD provide a dashboard to monitor integration status and data flow with external job sites."
         },
         {
             "id": "FR-104",
-            "text": ". The system SHOULD integrate with relevant government databases for data verification and enrichment."
+            "text": "The system SHOULD integrate with relevant government databases for data verification and enrichment."
         },
         {
             "id": "FR-105",
-            "text": ". The system SHOULD support integration with the MoL and PEF existing databases and systems."
+            "text": "The system SHOULD support integration with the MoL and PEF existing databases and systems."
         },
         {
             "id": "FR-106",
-            "text": ". The system SHOULD support verification of educational credentials through integration with educational institution databases."
+            "text": "The system SHOULD support verification of educational credentials through integration with educational institution databases."
         },
         {
             "id": "FR-107",
-            "text": ". The system SHOULD provide options for identity verification through government ID systems."
+            "text": "The system SHOULD provide options for identity verification through government ID systems."
         },
         {
             "id": "FR-108",
-            "text": ". The system SHOULD maintain audit trails of all data exchanges with government systems."
+            "text": "The system SHOULD maintain audit trails of all data exchanges with government systems."
         },
         {
             "id": "FR-109",
-            "text": ". The system SHOULD respect data privacy regulations when accessing and\nusing government data. ID Requirement"
+            "text": "The system SHOULD respect data privacy regulations when accessing and using government data."
         },
         {
             "id": "FR-110",
-            "text": ". The system SHOULD provide a comprehensive API framework for integration with external systems."
+            "text": "The system SHOULD provide a comprehensive API framework for integration with external systems."
         },
         {
             "id": "FR-111",
-            "text": ". The system SHOULD implement RESTful APIs with JSON data format as the\nprimary integration method."
+            "text": "The system SHOULD implement RESTful APIs with JSON data format as the primary integration method."
         },
         {
             "id": "FR-112",
-            "text": ". The system SHOULD provide detailed API documentation with examples and testing tools."
+            "text": "The system SHOULD provide detailed API documentation with examples and testing tools."
         },
         {
             "id": "FR-113",
-            "text": ". The system SHOULD implement OAuth 2.0 for API authentication and authorization."
+            "text": "The system SHOULD implement OAuth 2.0 for API authentication and authorization."
         },
         {
             "id": "FR-114",
-            "text": ". The system SHOULD support API versioning to ensure backward compatibility. ID Requirement"
+            "text": "The system SHOULD support API versioning to ensure backward compatibility."
         },
         {
             "id": "FR-119",
-            "text": ". MOL Life dashboard should include current logins, number of current logins and last sessions, with links to these users profiles ID Requirement"
+            "text": "MOL Life dashboard should include current logins, number of current logins and last sessions, with links to these users profiles"
         },
         {
             "id": "FR-120",
-            "text": ". The system SHOULD generate employment statistics and labor market insights from platform data."
+            "text": "The system SHOULD generate employment statistics and labor market insights from platform data."
         },
         {
             "id": "FR-121",
-            "text": ". The system SHOULD track key metrics including job posting trends,\napplication rates, hiring rates, and time-to-fill."
+            "text": "The system SHOULD track key metrics including job posting trends, application rates, hiring rates, and time-to-fill."
         },
         {
             "id": "FR-122",
-            "text": ". The system SHOULD provide industry-specific analytics on job market demand and supply."
+            "text": "The system SHOULD provide industry-specific analytics on job market demand and supply."
         },
         {
             "id": "FR-123",
-            "text": ". The system SHOULD analyze skill demand trends to identify emerging requirements and skill gaps."
+            "text": "The system SHOULD analyze skill demand trends to identify emerging requirements and skill gaps."
         },
         {
             "id": "FR-124",
-            "text": ". The system SHOULD generate geographic distribution reports for jobs and candidates."
+            "text": "The system SHOULD generate geographic distribution reports for jobs and candidates."
         },
         {
             "id": "FR-125",
-            "text": ". The system SHOULD provide salary range analytics by industry, position, and location."
+            "text": "The system SHOULD provide salary range analytics by industry, position, and location."
         },
         {
             "id": "FR-126",
-            "text": ". The system SHOULD track employment outcomes and career progression where data is available."
+            "text": "The system SHOULD track employment outcomes and career progression where data is available."
         },
         {
             "id": "FR-127",
-            "text": ". The system SHOULD generate periodic labor market reports for government stakeholders. ID Requirement"
+            "text": "The system SHOULD generate periodic labor market reports for government stakeholders."
         },
         {
             "id": "FR-128",
-            "text": ". The system SHOULD monitor and report on system performance metrics."
+            "text": "The system SHOULD monitor and report on system performance metrics."
         },
         {
             "id": "FR-129",
-            "text": ". The system SHOULD track matching algorithm performance including accuracy, precision, recall, and user satisfaction."
+            "text": "The system SHOULD track matching algorithm performance including accuracy, precision, recall, and user satisfaction."
         },
         {
             "id": "FR-130",
-            "text": ". The system SHOULD monitor system usage patterns including peak times,\npopular features, and user engagement."
-        },
-        {
-            "id": "FR-131",
-            "text": ". The system SHOULD track technical performance metrics including response times, resource utilization, and error rates."
+            "text": "The system SHOULD monitor system usage patterns including peak times, popular features, and user engagement."
         },
         {
             "id": "FR-132",
-            "text": ". The system SHOULD provide dashboards for administrators to monitor system health and performance."
+            "text": "The system SHOULD provide dashboards for administrators to monitor system health and performance."
         },
         {
             "id": "FR-133",
-            "text": ". The system SHOULD generate alerts for performance issues or anomalies."
+            "text": "The system SHOULD generate alerts for performance issues or anomalies."
         },
         {
             "id": "FR-134",
-            "text": ". The system SHOULD maintain historical performance data for trend analysis and capacity planning. ID Requirement"
+            "text": "The system SHOULD maintain historical performance data for trend analysis and capacity planning."
         },
         {
             "id": "FR-135",
-            "text": ". The system SHOULD provide a flexible reporting framework for generating\ncustom reports through seamless integration with existing and available reporting tools such as Microsoft Power BI."
+            "text": "The system SHOULD provide a flexible reporting framework for generating custom reports through seamless integration with existing and available reporting tools such as Microsoft Power BI."
         },
         {
             "id": "FR-136",
-            "text": ". The system SHOULD allow administrators to define report templates with configurable parameters."
+            "text": "The system SHOULD allow administrators to define report templates with configurable parameters."
         },
         {
             "id": "FR-137",
-            "text": ". The system SHOULD support various report formats including tabular data, charts, and visualizations."
+            "text": "The system SHOULD support various report formats including tabular data, charts, and visualizations."
         },
         {
             "id": "FR-138",
-            "text": ". The system SHOULD allow scheduling of recurring reports with automated distribution."
+            "text": "The system SHOULD allow scheduling of recurring reports with automated distribution."
         },
         {
             "id": "FR-139",
-            "text": ". The system SHOULD support export of reports in common formats (PDF, Excel, CSV)."
+            "text": "The system SHOULD support export of reports in common formats (PDF, Excel, CSV)."
         },
         {
             "id": "FR-140",
-            "text": ". The system SHOULD provide a report builder interface for users with\nappropriate permissions."
+            "text": "The system SHOULD provide a report builder interface for users with appropriate permissions."
         },
         {
             "id": "FR-141",
-            "text": ". The system SHOULD maintain a library of saved reports for quick access."
+            "text": "The system SHOULD maintain a library of saved reports for quick access."
         },
         {
             "id": "FR-142",
-            "text": ". The system SHOULD implement access controls to ensure users can only view reports appropriate to their role. ID Requirement"
+            "text": "The system SHOULD implement access controls to ensure users can only view reports appropriate to their role."
         },
         {
             "id": "FR-154",
-            "text": ". The system SHALL support different notification types with appropriate\nvisual indicators."
+            "text": "The system SHALL support different notification types with appropriate visual indicators."
         },
         {
             "id": "FR-168",
-            "text": ". The system SHALL organize help content by topic and user role for easy navigation."
+            "text": "The system SHALL organize help content by topic and user role for easy navigation."
         },
         {
             "id": "NFR-32",
-            "text": ". The system SHALL implement secure key management practices for encryption keys."
+            "text": "The system SHALL implement secure key management practices for encryption keys."
         },
         {
             "id": "NFR-33",
-            "text": ". The system SHALL provide mechanisms for secure data deletion when required."
+            "text": "The system SHALL provide mechanisms for secure data deletion when required."
         },
         {
             "id": "NFR-35",
-            "text": ". The system SHALL maintain separate environments for development, testing, and production with appropriate data isolation. ID Requirement"
+            "text": "The system SHALL maintain separate environments for development, testing, and production with appropriate data isolation."
         },
         {
             "id": "NFR-40",
-            "text": ". The system SHALL provide clear privacy notices and obtain appropriate consent for data collection and processing."
+            "text": "The system SHALL provide clear privacy notices and obtain appropriate consent for data collection and processing."
         },
         {
             "id": "NFR-69",
-            "text": ". The system SHALL implement appropriate retry mechanisms for transient errors."
+            "text": "The system SHALL implement appropriate retry mechanisms for transient errors."
         },
         {
             "id": "NFR-75",
-            "text": ". The system SHALL provide appropriate feedback for user actions."
+            "text": "The system SHALL provide appropriate feedback for user actions."
         },
         {
             "id": "NFR-81",
-            "text": ". The system SHALL ensure sufficient color contrast for text and interactive elements."
+            "text": "The system SHALL ensure sufficient color contrast for text and interactive elements."
         },
         {
             "id": "NFR-88",
-            "text": ". The system SHALL ensure that date, time, and number formats are appropriate for the selected language and locale."
+            "text": "The system SHALL ensure that date, time, and number formats are appropriate for the selected language and locale."
         },
         {
             "id": "NFR-91",
-            "text": ". The system SHALL implement language detection to suggest the appropriate language based on user settings and location. ID Requirement"
+            "text": "The system SHALL implement language detection to suggest the appropriate language based on user settings and location."
         },
         {
             "id": "NFR-98",
-            "text": ". The system SHALL provide appropriate defaults to reduce the need for user configuration. ID Requirement"
+            "text": "The system SHALL provide appropriate defaults to reduce the need for user configuration."
         },
         {
             "id": "NFR-121",
-            "text": ". The system SHALL maintain appropriate records for regulatory compliance and auditing."
+            "text": "The system SHALL maintain appropriate records for regulatory compliance and auditing."
         },
         {
             "id": "NFR-125",
-            "text": ". The system SHALL provide appropriate attribution for third-party content."
+            "text": "The system SHALL provide appropriate attribution for third-party content."
         },
         {
             "id": "NFR-156",
-            "text": ". The system SHALL use appropriate terminology and language for the local context."
+            "text": "The system SHALL use appropriate terminology and language for the local context."
         },
         {
             "id": "NFR-157",
-            "text": ". The system SHALL support local date and time formats, including Hijri calendar references where appropriate."
+            "text": "The system SHALL support local date and time formats, including Hijri calendar references where appropriate."
         },
         {
             "id": "NFR-161",
-            "text": ". The system SHALL implement appropriate content moderation policies for politically sensitive content."
+            "text": "The system SHALL implement appropriate content moderation policies for politically sensitive content."
         }
-    ]
+    ],
+    "format_issues": []
 }

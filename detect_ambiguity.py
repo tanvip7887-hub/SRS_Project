@@ -33,7 +33,8 @@ if isinstance(requirements, dict):
 
 print(f"Total requirements: {len(requirements)}")
 
-results = []
+ambiguous_results = []
+clear_count = 0
 
 # =========================
 # AMBIGUITY CHECK FUNCTION
@@ -63,32 +64,31 @@ def is_ambiguous(text):
 # =========================
 
 for req in requirements:
-    status = "AMBIGUOUS" if is_ambiguous(req["text"]) else "CLEAR"
-
-    results.append({
-        "id": req["id"],
-        "text": req["text"],
-        "status": status
-    })
+    if is_ambiguous(req["text"]):
+        ambiguous_results.append({
+            "id": req["id"],
+            "text": req["text"]
+        })
+    else:
+        clear_count += 1
 
 # =========================
-# SAVE OUTPUT
+# SAVE OUTPUT (ONLY AMBIGUOUS)
 # =========================
 
 with open("ambiguity_report.json", "w", encoding="utf-8") as f:
-    json.dump(results, f, indent=4)
+    json.dump(ambiguous_results, f, indent=4)
 
 # =========================
 # SUMMARY
 # =========================
 
-ambiguous_count = sum(1 for r in results if r["status"] == "AMBIGUOUS")
-clear_count = sum(1 for r in results if r["status"] == "CLEAR")
+ambiguous_count = len(ambiguous_results)
 
 print("\n✅ Ambiguity detection complete!")
 print("📄 Saved as ambiguity_report.json")
 
 print("\n📊 SUMMARY")
-print(f"Total: {len(results)}")
+print(f"Total: {len(requirements)}")
 print(f"AMBIGUOUS: {ambiguous_count}")
 print(f"CLEAR: {clear_count}")
