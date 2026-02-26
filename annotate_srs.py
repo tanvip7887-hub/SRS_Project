@@ -15,7 +15,7 @@ with open("duplicates_grouped.json", "r", encoding="utf-8") as f:
 with open("ambiguity_report.json", "r", encoding="utf-8") as f:
     ambiguity_data = json.load(f)
 
-# If requirements stored as list, convert to dictionary
+# Convert requirements list to dict if needed
 if isinstance(requirements, list):
     requirements = {item["id"]: item["text"] for item in requirements}
 
@@ -36,7 +36,7 @@ for original_id, dup_list in duplicates_grouped.items():
 
 # =========================
 # PROCESS AMBIGUOUS
-# (ambiguity_report.json already contains ONLY ambiguous)
+# (ambiguity_report.json contains only ambiguous)
 # =========================
 
 ambiguous_requirements = []
@@ -50,8 +50,13 @@ for item in ambiguity_data:
 
     ambiguous_requirements.append({
         "id": req_id,
-        "text": item["text"]
+        "text": item["text"],
+        "ambiguous_flags": item.get("ambiguous_flags", []),
+        "ambiguity_score": item.get("ambiguity_score", 0)
     })
+
+# Optional: sort ambiguous requirements by score descending
+ambiguous_requirements.sort(key=lambda x: x["ambiguity_score"], reverse=True)
 
 # =========================
 # GRAMMAR / FORMAT VALIDATION
@@ -61,7 +66,7 @@ format_issues = []
 
 for req_id, text in requirements.items():
 
-    # Skip duplicates (since removed later)
+    # Skip duplicates
     if req_id in duplicate_removed_ids:
         continue
 
@@ -76,7 +81,7 @@ for req_id, text in requirements.items():
         })
 
 # =========================
-# BUILD REPORT
+# BUILD ANNOTATED REPORT
 # =========================
 
 annotated_srs = {
@@ -98,6 +103,10 @@ annotated_srs = {
 
 with open("annotated_srs.json", "w", encoding="utf-8") as f:
     json.dump(annotated_srs, f, indent=4)
+
+# =========================
+# SUMMARY OUTPUT
+# =========================
 
 print("\n✅ Quality Issue Report Generated!")
 print("📄 Saved as annotated_srs.json")

@@ -1,148 +1,100 @@
 import json
-import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import util
+from embedding_model import get_embeddings
 
+# ==============================
+# SETTINGS
+# ==============================
+SIMILARITY_THRESHOLD = 0.85  # Tune 0.83–0.88
 
-THRESHOLD = 0.85
+print("📂 Loading requirements.json...")
 
+# ==============================
+# LOAD REQUIREMENTS (DICT FORMAT)
+# ==============================
+with open("requirements.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
 
-# -----------------------------------------
-# STEP 1 — Load Requirements
-# -----------------------------------------
+# Your format: {"FR-01": "text", ...}
+if not isinstance(data, dict):
+    raise ValueError("requirements.json must be a dictionary of ID: text")
 
-def load_requirements(path="requirements.json"):
-    print("\n🟢 Loading requirements...")
+# Convert dictionary to list of dicts
+requirements = []
+for req_id, text in data.items():
+    requirements.append({
+        "id": req_id,
+        "text": text.strip()
+    })
 
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+print(f"🔢 Total requirements: {len(requirements)}")
 
-    print(f"Total requirements: {len(data)}")
-    return data
+texts = [req["text"] for req in requirements]
 
+# ==============================
+# GENERATE EMBEDDINGS
+# ==============================
+print("🧠 Generating embeddings...")
+embeddings = get_embeddings(texts)
 
-# -----------------------------------------
-# STEP 2 — Generate Embeddings
-# -----------------------------------------
+# ==============================
+# CALCULATE SIMILARITY
+# ==============================
+print("📊 Calculating similarity matrix...")
+cosine_scores = util.cos_sim(embeddings, embeddings)
 
-def generate_embeddings(requirements):
-    print("\n🟡 Loading MiniLM model...")
-    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+# ==============================
+# DETECT DUPLICATES
+# ==============================
+print("🔎 Detecting duplicates...")
 
-    print("Generating embeddings...")
-    texts = list(requirements.values())
-    embeddings = model.encode(texts, convert_to_numpy=True)
+visited = set()
+duplicate_groups = []
 
-    print("Embeddings shape:", embeddings.shape)
-    return embeddings
+for i in range(len(texts)):
+    if i in visited:
+        continue
 
+    group = [i]
 
-# -----------------------------------------
-# STEP 3 — Compute Cosine Similarity Matrix
-# -----------------------------------------
+    for j in range(i + 1, len(texts)):
+        if cosine_scores[i][j] >= SIMILARITY_THRESHOLD:
+            group.append(j)
+            visited.add(j)
 
-def compute_similarity(embeddings):
-    print("\n🟠 Computing cosine similarity matrix...")
-    sim_matrix = cosine_similarity(embeddings)
-    print("Similarity matrix shape:", sim_matrix.shape)
-    return sim_matrix
+    if len(group) > 1:
+        duplicate_groups.append(group)
 
+print(f"✅ Duplicate groups found: {len(duplicate_groups)}")
 
-# -----------------------------------------
-# STEP 4 — Graph-Based Duplicate Detection
-# -----------------------------------------
+# ==============================
+# FORMAT OUTPUT
+# ==============================
+duplicates_output = []
 
-def find_duplicate_groups(req_ids, sim_matrix):
-    print("\n🔵 Finding duplicate groups using graph clustering...")
+for group in duplicate_groups:
+    group_data = []
+    for idx in group:
+        group_data.append({
+            "id": requirements[idx]["id"],
+            "text": requirements[idx]["text"]
+        })
+    duplicates_output.append(group_data)
 
-    n = len(req_ids)
-    visited = set()
-    groups = []
+output = {
+    "summary": {
+        "total_requirements": len(requirements),
+        "duplicate_groups": len(duplicate_groups),
+        "similarity_threshold": SIMILARITY_THRESHOLD
+    },
+    "duplicates": duplicates_output
+}
 
-    for i in range(n):
-        if i in visited:
-            continue
+# ==============================
+# SAVE REPORT
+# ==============================
+with open("duplicate_report.json", "w", encoding="utf-8") as f:
+    json.dump(output, f, indent=4, ensure_ascii=False)
 
-        stack = [i]
-        component = []
-
-        while stack:
-            node = stack.pop()
-            if node in visited:
-                continue
-
-            visited.add(node)
-            component.append(node)
-
-            for j in range(n):
-                if j not in visited and sim_matrix[node][j] >= THRESHOLD:
-                    stack.append(j)
-
-        if len(component) > 1:
-            groups.append(component)
-
-    print(f"Duplicate groups found: {len(groups)}")
-    return groups
-
-
-# -----------------------------------------
-# STEP 5 — Convert to Clean JSON Structure
-# -----------------------------------------
-
-def build_grouped_output(groups, req_ids, sim_matrix):
-    duplicate_groups = {}
-
-    for group in groups:
-        base_id = req_ids[group[0]]
-        duplicates = {}
-
-        for idx in group[1:]:
-            duplicates[req_ids[idx]] = round(
-                float(sim_matrix[group[0]][idx]), 4
-            )
-
-        duplicate_groups[base_id] = duplicates
-
-    return duplicate_groups
-
-
-# -----------------------------------------
-# STEP 6 — Save Results
-# -----------------------------------------
-
-def save_results(data):
-    with open("duplicates_grouped.json", "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=4)
-
-    with open("duplicates_readable.txt", "w", encoding="utf-8") as f:
-        for base, group in data.items():
-            f.write(f"\n{base}:\n")
-            for dup_id, score in group.items():
-                f.write(f"   • {dup_id} ({score})\n")
-
-    print("\n🟣 Saved:")
-    print(" - duplicates_grouped.json")
-    print(" - duplicates_readable.txt")
-
-
-# -----------------------------------------
-# MAIN PIPELINE
-# -----------------------------------------
-
-if __name__ == "__main__":
-    requirements = load_requirements()
-    req_ids = list(requirements.keys())
-
-    embeddings = generate_embeddings(requirements)
-    sim_matrix = compute_similarity(embeddings)
-
-    groups = find_duplicate_groups(req_ids, sim_matrix)
-    grouped_output = build_grouped_output(groups, req_ids, sim_matrix)
-
-    save_results(grouped_output)
-
-    print("\n🔴 SAMPLE OUTPUT:")
-    for k, v in list(grouped_output.items())[:5]:
-        print(f"\n{k}:")
-        for dup, score in v.items():
-            print(f"   → {dup} ({score})")
+print("📁 duplicate_report.json generated successfully!")
+print("🚀 Duplicate detection completed.")

@@ -1,0 +1,129 @@
+{
+    "summary": {
+        "total_requirements": 335,
+        "duplicate_groups": 12,
+        "similarity_threshold": 0.85
+    },
+    "duplicates": [
+        [
+            {
+                "id": "FR-12",
+                "text": ". The system SHALL allow the job seeker to upload supplementary documents (i.e. certificate ) ID Requirement"
+            },
+            {
+                "id": "FR-21",
+                "text": ". The system SHALL allow the employer to upload supplementary documents (i.e. company registration certificate) ID Requirement"
+            }
+        ],
+        [
+            {
+                "id": "FR-50",
+                "text": ". The system SHALL enforce strong password policies with configurable parameters."
+            },
+            {
+                "id": "NFR-23",
+                "text": ". The system SHALL enforce strong password policies, including minimum length, complexity, and regular password changes."
+            }
+        ],
+        [
+            {
+                "id": "FR-51",
+                "text": ". The system SHALL implement role-based access control to restrict access to features and data based on user roles."
+            },
+            {
+                "id": "NFR-24",
+                "text": ". The system SHALL implement role-based access control (RBAC) to restrict access to features and data based on user roles."
+            }
+        ],
+        [
+            {
+                "id": "FR-52",
+                "text": ". The system SHALL provide session management with configurable timeout settings."
+            },
+            {
+                "id": "NFR-27",
+                "text": ". The system SHALL implement secure session management with appropriate timeout settings."
+            }
+        ],
+        [
+            {
+                "id": "FR-54",
+                "text": ". The system SHALL provide a structured job posting form for employers to create job listings."
+            },
+            {
+                "id": "FR-55",
+                "text": ". The system SHALL provide a structured job posting form that allows employers to add new job opportunities with the following fields:\n\nJob title, summary, and required skills (with support for file upload or copy/paste input)\nContract type (e.g., full-time, part-time, training, project-based)\nRequired education level\nApplication deadline with an optional auto-close feature\nWork format selection (Physical with employment location, Online, or Hybrid)\nGender, number of employees, etc\nRequired languages and proficiency levels\nLink to the job if available.\nMore detailed features on the job post to be provided."
+            }
+        ],
+        [
+            {
+                "id": "FR-86",
+                "text": ". The system SHALL recommend suitable job seekers to employers based on job requirements and matching criteria."
+            },
+            {
+                "id": "FR-90",
+                "text": ". The system SHALL provide employers with candidate recommendations for their job postings."
+            }
+        ],
+        [
+            {
+                "id": "FR-118",
+                "text": ". The system SHALL implement data retention policies for activity logs in compliance with regulations."
+            },
+            {
+                "id": "NFR-135",
+                "text": ". The system SHALL maintain log retention policies in compliance with legal requirements."
+            }
+        ],
+        [
+            {
+                "id": "FR-132",
+                "text": ". The system SHOULD provide dashboards for administrators to monitor system health and performance."
+            },
+            {
+                "id": "NFR-136",
+                "text": ". The system SHALL provide dashboards for monitoring system status and performance metrics."
+            }
+        ],
+        [
+            {
+                "id": "NFR-06",
+                "text": ". The system SHALL support at least 1,000 concurrent users during normal operations."
+            },
+            {
+                "id": "NFR-07",
+                "text": ". The system SHALL support at least 5,000 concurrent users during peak\nperiods."
+            }
+        ],
+        [
+            {
+                "id": "NFR-16",
+                "text": ". The system SHALL be designed to scale horizontally by adding more server instances to handle increased load."
+            },
+            {
+                "id": "NFR-17",
+                "text": ". The system SHALL be designed to scale vertically by utilizing additional\nresources on existing servers."
+            }
+        ],
+        [
+            {
+                "id": "NFR-18",
+                "text": ". The system SHALL support a minimum of 100,000 registered job seekers without performance degradation."
+            },
+            {
+                "id": "NFR-19",
+                "text": ". The system SHALL support a minimum of 10,000 registered employers\nwithout performance degradation."
+            }
+        ],
+        [
+            {
+                "id": "NFR-112",
+                "text": ". The system SHALL be compatible with the latest versions of major web browsers (Chrome, Firefox, Safari, Edge)."
+            },
+            {
+                "id": "NFR-113",
+                "text": ". The system SHALL be compatible with the previous two major versions of\nsupported browsers."
+            }
+        ]
+    ]
+}
